@@ -1,3 +1,4 @@
+import 'package:bases_web/services/navigator_service.dart';
 import 'package:bases_web/ui/shared/custom_flat_button.dart';
 import 'package:flutter/material.dart';
 
@@ -17,7 +18,8 @@ class CustomAppMenu extends StatelessWidget {
           CustomFlatButton(
             text: 'Contador Stateful',
             onPressed: () {
-              Navigator.popAndPushNamed(context, '/stateful');
+              // Navigator.popAndPushNamed(context, '/stateful');
+              navigationService.navigateTo('/stateful');
             },
             color: Colors.black,
           ),
@@ -25,7 +27,8 @@ class CustomAppMenu extends StatelessWidget {
           CustomFlatButton(
             text: 'Contador Provider',
             onPressed: () {
-              Navigator.popAndPushNamed(context, '/provider');
+              // Navigator.popAndPushNamed(context, '/provider');
+              navigationService.navigateTo('/provider');
             },
             color: Colors.black,
           ),
@@ -33,7 +36,8 @@ class CustomAppMenu extends StatelessWidget {
           CustomFlatButton(
             text: 'Otra Pagina',
             onPressed: () {
-              Navigator.popAndPushNamed(context, '/aaa');
+              // Navigator.popAndPushNamed(context, '/aaa');
+              navigationService.navigateTo('/aaa');
             },
             color: Colors.black,
           ),

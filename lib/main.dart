@@ -1,4 +1,6 @@
 import 'package:bases_web/router/route_generator.dart';
+import 'package:bases_web/services/navigator_service.dart';
+import 'package:bases_web/ui/layout/main_layout_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -12,15 +14,17 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'RutasApp',
-      initialRoute: '/stateful',
-      // routes: {
-      //   '/stateful': (BuildContext context) => const CounterPage(),
-      //   '/provider': (BuildContext context) => const CounterProviderPage(),
-      // },
       onGenerateRoute: RouteGenerator.generateRoute,
+      initialRoute: '/stateful',
+      title: 'RutasApp',
+      navigatorKey: navigationService.navigatorKey,
+      builder: (_, child) {
+        return MainLayoutPage(
+          child: child ?? const CircularProgressIndicator(),
+        );
+      },
     );
   }
 }
