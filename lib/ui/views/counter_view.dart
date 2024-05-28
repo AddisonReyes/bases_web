@@ -1,3 +1,5 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:bases_web/ui/shared/custom_flat_button.dart';
 import 'package:flutter/material.dart';
 

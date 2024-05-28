@@ -1,67 +1,33 @@
-import 'package:bases_web/ui/views/counter_provider_view.dart';
-import 'package:bases_web/ui/views/counter_view.dart';
-import 'package:bases_web/ui/views/view_404.dart';
+// ignore_for_file: non_constant_identifier_names
+
+import 'package:bases_web/router/route_handlers.dart';
 import 'package:fluro/fluro.dart';
-import 'package:flutter/material.dart';
 
 class Flurorouter {
   static final FluroRouter router = FluroRouter();
 
   static void configureRoutes() {
-    router.define(
-      '/stateful',
-      handler: _counterStatefulHandler,
-      transitionType: TransitionType.none,
-    );
-    router.define(
-      '/stateful/:base',
-      handler: _counterStatefulHandler,
-      transitionType: TransitionType.none,
-    );
-    router.define(
-      '/provider',
-      handler: _counterProviderHandler,
-      transitionType: TransitionType.none,
-    );
-    router.define(
-      '/',
-      handler: _nullHandler,
-      transitionType: TransitionType.none,
-    );
-    router.notFoundHandler = _404PageHandler;
+    var dashboardView = '/dashboard/users/:userid/:roleid';
+    var statefulPView = '/stateful/:base';
+    var providerView = '/provider';
+    var statefulView = '/stateful';
+    var noneView = '/';
+
+    router.define(statefulView,
+        handler: counterStatefulHandler, transitionType: TransitionType.none);
+
+    router.define(statefulPView,
+        handler: counterStatefulHandler, transitionType: TransitionType.none);
+
+    router.define(providerView,
+        handler: counterProviderHandler, transitionType: TransitionType.none);
+
+    router.define(dashboardView,
+        handler: dashboardUserHandler, transitionType: TransitionType.none);
+
+    router.define(noneView,
+        handler: nullHandler, transitionType: TransitionType.none);
+
+    router.notFoundHandler = Page404Handler;
   }
-
-  // Handlers
-  static final Handler _counterStatefulHandler = Handler(
-    handlerFunc: (context, parameters) {
-      return CounterView(
-        base: parameters['base']?[0] ?? '5',
-      );
-    },
-  );
-
-  static final Handler _counterProviderHandler = Handler(
-    handlerFunc: (context, parameters) {
-      print(parameters);
-      return CounterProviderView(
-        base: parameters['base']?[0] ?? '15',
-      );
-    },
-  );
-
-  static final Handler _nullHandler = Handler(
-    handlerFunc: (context, parameters) {
-      return Container(
-        child: const Center(
-          child: CircularProgressIndicator(),
-        ),
-      );
-    },
-  );
-
-  static final Handler _404PageHandler = Handler(
-    handlerFunc: (context, parameters) {
-      return const View404();
-    },
-  );
 }
