@@ -61,6 +61,26 @@ class _TabletDesktopMenu extends StatelessWidget {
             },
             color: Colors.black,
           ),
+          const SizedBox(width: 10),
+          CustomFlatButton(
+            text: 'Stateful 100',
+            onPressed: () {
+              // Navigator.popAndPushNamed(context, '/aaa');
+              // navigationService.navigateTo('/aaa');
+              locator<NavigatorService>().navigateTo('/stateful/100');
+            },
+            color: Colors.black,
+          ),
+          const SizedBox(width: 10),
+          CustomFlatButton(
+            text: 'provider 200',
+            onPressed: () {
+              // Navigator.popAndPushNamed(context, '/aaa');
+              // navigationService.navigateTo('/aaa');
+              locator<NavigatorService>().navigateTo('/provider?base=200');
+            },
+            color: Colors.black,
+          ),
         ],
       ),
     );
@@ -109,6 +129,26 @@ class _MobileMenu extends StatelessWidget {
               // Navigator.popAndPushNamed(context, '/aaa');
               // navigationService.navigateTo('/aaa');
               locator<NavigatorService>().navigateTo('/aaa');
+            },
+            color: Colors.black,
+          ),
+          const SizedBox(width: 10),
+          CustomFlatButton(
+            text: 'Stateful 100',
+            onPressed: () {
+              // Navigator.popAndPushNamed(context, '/aaa');
+              // navigationService.navigateTo('/aaa');
+              locator<NavigatorService>().navigateTo('/stateful/100');
+            },
+            color: Colors.black,
+          ),
+          const SizedBox(width: 10),
+          CustomFlatButton(
+            text: 'Provider 200',
+            onPressed: () {
+              // Navigator.popAndPushNamed(context, '/aaa');
+              // navigationService.navigateTo('/aaa');
+              locator<NavigatorService>().navigateTo('/provider?base=200');
             },
             color: Colors.black,
           ),

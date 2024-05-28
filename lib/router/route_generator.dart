@@ -12,10 +12,18 @@ class RouteGenerator {
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
       case kStatefulPage:
-        return _fadeRoute(const CounterView(), kStatefulPage);
+        return _fadeRoute(
+            CounterView(
+              base: '0',
+            ),
+            kStatefulPage);
 
       case kProviderPage:
-        return _fadeRoute(CounterProviderView(), kProviderPage);
+        return _fadeRoute(
+            CounterProviderView(
+              base: '16',
+            ),
+            kProviderPage);
 
       default:
         return _fadeRoute(const View404(), k404Page);

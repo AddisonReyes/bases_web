@@ -4,14 +4,16 @@ import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
 
 class CounterProviderView extends StatelessWidget {
-  CounterProviderView({super.key});
+  CounterProviderView({super.key, required this.base});
+
+  final String base;
 
   int num = 16;
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
       create: (context) {
-        return CounterProvider();
+        return CounterProvider(base: base);
       },
       child: const _CounterProviderViewBody(),
     );

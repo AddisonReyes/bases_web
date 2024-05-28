@@ -12,7 +12,7 @@ class CounterProviderPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
       create: (context) {
-        return CounterProvider();
+        return CounterProvider(base: num.toString());
       },
       child: const _CounterProviderPageBody(),
     );
