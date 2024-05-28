@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class _NavigatorService {
+class NavigatorService {
   final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 
   Future navigateTo(String routeName) {
@@ -11,5 +11,3 @@ class _NavigatorService {
     return navigatorKey.currentState!.pop();
   }
 }
-
-final navigationService = _NavigatorService();
